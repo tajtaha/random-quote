@@ -4,9 +4,9 @@ import regroupIcon from "./assets/regroup.svg";
 import linkIcon from "./assets/link.svg";
 
 export default function App() {
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
-  const [tags, setTags] = useState([]);
+  const [quote, setQuote] = useState("Loading a fresh quote...");
+  const [author, setAuthor] = useState("Random Quote");
+  const [tags, setTags] = useState(["Loading"]);
 
   function fetchQuote() {
     fetch(
@@ -42,13 +42,13 @@ export default function App() {
   }
 
   return (
-    <div className="App">
+    <main className="App">
       <Container author={author} quote={quote} tags={tags} />
       <div className="buttons">
         <Random onRandom={handleRandom} />
         <Share onShare={handleShare} />
       </div>
-    </div>
+    </main>
   );
 }
 
@@ -84,7 +84,7 @@ function Random({ onRandom }) {
   return (
     <button onClick={onRandom}>
       Random
-      <img src={regroupIcon} alt="random" />
+      <img src={regroupIcon} alt="" aria-hidden="true" />
     </button>
   );
 }
@@ -93,7 +93,7 @@ function Share({ onShare }) {
   return (
     <button onClick={onShare}>
       Share
-      <img src={linkIcon} alt="share" />
+      <img src={linkIcon} alt="" aria-hidden="true" />
     </button>
   );
 }

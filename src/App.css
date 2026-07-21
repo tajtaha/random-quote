@@ -111,6 +111,7 @@ button {
   position: relative;
   width: 720px;
   max-width: 92vw;
+  min-height: 340px;
   padding: 44px 60px;
   border-radius: 18px;
   background-image:
